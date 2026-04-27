@@ -1,0 +1,131 @@
+package linkedlist;
+
+import java.util.Scanner;
+
+public class Singly_Main {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		Singly_LL list = new Singly_LL(null);
+
+		int choice;
+
+		do {
+			System.out.println(
+					"\n===== MAIN MENU =====\n1. Insert Operations\n2. Delete Operations\n3. Display Operations\n4. Other Operations\n5. Exit");
+			System.out.print("Enter choice: ");
+			choice = sc.nextInt();
+
+			switch (choice) {
+
+			case 1:
+				System.out.println(
+						"\n--- Insert Menu ---\n1. Insert First\n2. Insert Last\n3. Insert At Position\n4. Insert Sorted\n5. Insert Before Data\n6. Insert After Data");
+				System.out.print("Enter choice: ");
+				int insertChoice = sc.nextInt();
+
+				System.out.print("Enter data: ");
+				int data = sc.nextInt();
+
+				switch (insertChoice) {
+				case 1:
+					list.insertFirst(data);
+					break;
+				case 2:
+					list.insertLast(data);
+					break;
+				case 3:
+					System.out.print("Enter position: ");
+					int pos = sc.nextInt();
+					list.insertAtPosition(data, pos);
+					break;
+				case 4:
+					list.insertSorted(data);
+					break;
+				case 5:
+					System.out.print("Enter key: ");
+					int key1 = sc.nextInt();
+					list.insertBeforeData(data, key1);
+					break;
+				case 6:
+					System.out.print("Enter key: ");
+					int key2 = sc.nextInt();
+					list.insertAfterData(data, key2);
+					break;
+				default:
+					System.out.println("Invalid Insert Choice!");
+				}
+				break;
+
+			case 2:
+				System.out.println("\n--- Delete Menu ---\n1. Delete First\n2. Delete Last\n3. Delete At Position");
+				System.out.print("Enter choice: ");
+				int deleteChoice = sc.nextInt();
+				switch (deleteChoice) {
+				case 1:
+					System.out.println("Deleted: " + list.deleteFirst());
+					break;
+				case 2:
+					System.out.println("Deleted: " + list.deleteLast());
+					break;
+				case 3:
+					System.out.print("Enter position: ");
+					int pos = sc.nextInt();
+					System.out.println("Deleted: " + list.deleteAtPosition(pos));
+					break;
+				default:
+					System.out.println("Invalid Delete Choice!");
+				}
+				break;
+
+			case 3:
+				System.out.println("\n--- Display Menu ---\n1. Display List\n2. Display Alternate Nodes");
+				System.out.print("Enter choice: ");
+				int displayChoice = sc.nextInt();
+
+				switch (displayChoice) {
+				case 1:
+					list.display();
+					break;
+				case 2:
+					list.displayAlternateNode();
+					break;
+				default:
+					System.out.println("Invalid Display Choice!");
+				}
+				break;
+
+			case 4:
+				System.out.println("\n--- Other Operations --- \n1. Count Nodes\n2. Reverse List\n3. Swap Alternate");
+				System.out.print("Enter choice: ");
+				int otherChoice = sc.nextInt();
+
+				switch (otherChoice) {
+				case 1:
+					System.out.println("Node Count: " + list.countNode());
+					break;
+				case 2:
+					list.reversedLinkedList();
+					break;
+				case 3:
+					list.swapAlternative();
+					break;
+				default:
+					System.out.println("Invalid Choice!");
+				}
+				break;
+
+			case 5:
+				System.out.println("Exiting program...");
+				break;
+
+			default:
+				System.out.println("Invalid Main Choice!");
+			}
+
+		} while (choice != 5);
+
+		sc.close();
+	}
+
+}

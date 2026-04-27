@@ -1,0 +1,47 @@
+package linkedlist;
+
+public class Singly_LL {
+	
+	private Node head;
+
+	public Singly_LL(Node head) {
+		super();
+		this.head = head;
+	}
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
+	
+	
+	
+	public void display() {
+		if(head == null) {
+			System.out.println("Linked list IS Empty!!!");
+			return;
+		}
+		Node temp = head;
+		while(temp!=null) {
+			System.out.println(temp.getData()+" -> ");
+			temp=temp.getNext();
+		}
+	}
+	public void insertFirst(int data) {
+		Node newNode = new Node(data);
+		if(head==null) {
+			head = newNode;
+			return;
+		}
+		newNode.setNext(head);
+		head=newNode;
+		return;		
+	}
+	
+	
+	
+
+}
