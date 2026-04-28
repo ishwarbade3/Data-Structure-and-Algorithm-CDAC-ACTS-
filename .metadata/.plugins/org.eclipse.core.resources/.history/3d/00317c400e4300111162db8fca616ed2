@@ -1,0 +1,55 @@
+package circular_linked_list;
+
+import linkedlist.Node;
+
+public class Circular_LL {
+	private Node last;
+	public Circular_LL() {
+		last=null;
+	}
+	public void insertFirst(int data) {
+		Node newNode = new Node(data);
+		if(last==null) {
+			last=newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		return;
+	}
+	public void insertLast(int data) {
+		Node newNode = new Node(data);
+		if(last==null) {
+			last=newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		last=newNode;
+		return;
+	}
+	public void insertByPos(int data,int pos) {
+		Node newNode = new Node(data);
+		if(last == null) {
+			last=newNode;
+			last.setNext(last);
+			return;
+		}
+		if(pos==1) {
+			insertFirst(data);
+			return;
+		}
+		Node temp = last.getNext();
+		int i=1;
+		do {
+			if(pos == i) {
+				
+			}
+			
+		}while(temp!=temp.getNext());
+	}
+	
+
+}

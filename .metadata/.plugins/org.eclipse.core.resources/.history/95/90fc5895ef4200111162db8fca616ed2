@@ -1,0 +1,57 @@
+package doubly_linked_list;
+
+public class Doubly_LinkedList {
+	private D_Node head;
+	public Doubly_LinkedList(){
+		head = null;
+	}
+	
+	public void insertFirst(int data) {
+		D_Node newNode =  new D_Node(data);
+		
+		if(head == null) {
+			head=newNode;
+			return;
+		}
+		newNode.setNext(head);
+		head.setPrev(newNode);
+		head=newNode;
+	}
+	public void insertLast(int data) {
+		D_Node newNode =  new D_Node(data);
+		if(head== null) {
+			head=newNode;
+			return;
+		}
+		D_Node temp = head;
+		while(temp.getNext()!=null) {
+			temp=temp.getNext();
+		}
+		newNode.setPrev(temp);
+		temp.setNext(newNode);
+		return;
+	}
+	
+	public void insertAtPos(int data,int pos) {
+		D_Node newNode =  new D_Node(data);
+		if(head== null) {
+			head=newNode;
+			return;
+		}
+		if(pos==1) {
+			insertFirst(data);
+			return;
+		}
+		D_Node temp = head;
+		for (int i=1;i<pos-1&&temp.getNext()!=null;i++) {
+			temp=  temp.getNext();
+		}
+		newNode.setNext(temp.getNext());
+		newNode.setPrev(temp);
+		if(temp.getNext()!=null) {
+			newNode.getNext().setPrev(newNode);
+		}
+		temp.setNext(newNode);
+		return;
+	}
+}

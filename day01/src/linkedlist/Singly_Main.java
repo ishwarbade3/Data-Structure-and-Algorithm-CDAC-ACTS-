@@ -6,7 +6,8 @@ public class Singly_Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Singly_LL list = new Singly_LL(null);
+        //Singly_LL list = new Singly_LL(null);
+        Remove_Cycle list = new Remove_Cycle(null);
 
         int choice;
 
@@ -134,7 +135,7 @@ public class Singly_Main {
                 int otherChoice;
                 do {
                     System.out.println(
-                            "\n--- Other Operations ---\n1. Count Nodes\n2. Reverse List\n3. Swap Alternate\n4. Display List\n5. Exit");
+                            "\n--- Other Operations ---\n1. Count Nodes\n2. Reverse List\n3. Swap Alternate\n4. Display List\n5. Form Cycle \n6. RemoveCycle \n7. Exit");
                     System.out.print("Enter choice: ");
                     otherChoice = sc.nextInt();
 
@@ -154,12 +155,20 @@ public class Singly_Main {
                         list.display();
                         break;
                     case 5:
+                    	System.out.print("Enter Data From Where you Want to Form cycle !!!  :");
+                    	int fd = sc.nextInt();
+                        list.formCycle(fd);
+                        break;
+                    case 6:
+                        list.removeCycle();
+                        break;
+                    case 7:
                         System.out.println("Exiting Other Menu!");
                         break;
                     default:
                         System.out.println("Invalid Choice!");
                     }
-                } while (otherChoice != 5);
+                } while (otherChoice != 7);
                 break;
 
             // ================= EXIT =================

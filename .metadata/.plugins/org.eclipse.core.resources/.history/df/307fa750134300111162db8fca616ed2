@@ -1,0 +1,144 @@
+package circular_linked_list;
+
+import linkedlist.Node;
+
+public class Circular_LL {
+	private Node last;
+
+	public Circular_LL() {
+		last = null;
+	}
+
+	public void insertFirst(int data) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		return;
+	}
+
+	public void insertLast(int data) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		last = newNode;
+		return;
+	}
+
+	public void insertByPos(int data, int pos) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		if (pos == 1) {
+			insertFirst(data);
+			return;
+		}
+		Node temp = last.getNext();
+		int i = 1;
+		do {
+			if (pos == i) {
+				if (temp == last) {
+					insertLast(data);
+					return;
+				}
+				newNode.setNext(temp.getNext());
+				temp.setNext(newNode);
+				return;
+			}
+			i++;
+			temp = temp.getNext();
+
+		} while (temp != temp.getNext());
+
+		System.out.println("invalid Position !!!");
+		return;
+	}
+
+	public void display() {
+		if (last == null) {
+			System.out.println("List is Empty!!!");
+			return;
+		}
+		Node temp = last.getNext();
+		do {
+			System.out.print(temp.getData() + " -> ");
+			temp = temp.getNext();
+		} while (temp != last.getNext());
+		System.out.println(" null ");
+		return;
+	}
+
+	public int deleteFirst() {
+		if (last == null) {
+			return -1;
+		}
+		int d;
+		if (last.getNext() == last) {
+			d = last.getData();
+			last.setNext(null);
+			last = null;
+			return d;
+		}
+		Node deletable = last.getNext();
+		last.setNext(deletable.getNext());
+		deletable.setNext(null);
+		d = deletable.getData();
+		deletable = null;
+		return d;
+	}
+	public int deleteLast() {
+		if (last == null) {
+			return -1;
+		}
+		int d;
+		if (last.getNext() == last) {
+			d = last.getData();
+			last.setNext(null);
+			last = null;
+			return d;
+		}
+		Node temp = last;
+		do {
+			temp=temp.getNext();
+		}while(temp.getNext()!=last);
+		Node deletable =temp.getNext();
+		temp.setNext(deletable.getNext());
+		deletable.setNext(null);
+		d=deletable.getData();
+		deletable=null;
+		return d;
+	}
+
+	public static void main(String[] args) {
+		Circular_LL ll = new Circular_LL();
+		ll.insertFirst(10);
+		ll.insertFirst(20);
+		ll.insertFirst(30);
+		ll.insertFirst(50);
+		ll.display();
+		ll.insertLast(50);
+		ll.insertLast(70);
+		ll.display();
+		ll.insertByPos(80, 3);
+		ll.insertByPos(90, 7);
+		ll.display();
+		ll.deleteFirst();
+		ll.display();
+		ll.deleteLast();
+		ll.display();
+
+	}
+
+}

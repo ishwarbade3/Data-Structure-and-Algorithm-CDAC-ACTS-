@@ -2,7 +2,7 @@ package linkedlist;
 
 public class Singly_LL {
 
-	private Node head;
+	protected Node head;
 
 	public Singly_LL(Node head) {
 		super();

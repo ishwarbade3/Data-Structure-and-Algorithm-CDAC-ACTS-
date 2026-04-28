@@ -1,0 +1,95 @@
+package circular_linked_list;
+
+import linkedlist.Node;
+
+public class Circular_LL {
+	private Node last;
+
+	public Circular_LL() {
+		last = null;
+	}
+
+	public void insertFirst(int data) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		return;
+	}
+
+	public void insertLast(int data) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		newNode.setNext(last.getNext());
+		last.setNext(newNode);
+		last = newNode;
+		return;
+	}
+
+	public void insertByPos(int data, int pos) {
+		Node newNode = new Node(data);
+		if (last == null) {
+			last = newNode;
+			last.setNext(last);
+			return;
+		}
+		if (pos == 1) {
+			insertFirst(data);
+			return;
+		}
+		Node temp = last.getNext();
+		int i = 1;
+		do {
+			if (pos == i) {
+				if (temp == last) {
+					insertLast(data);
+					return;
+				}
+				newNode.setNext(temp.getNext());
+				temp.setNext(newNode);
+				return;
+			}
+			i++;
+			temp = temp.getNext();
+
+		} while (temp != temp.getNext());
+
+		System.out.println("invalid Position !!!");
+		return;
+	}
+	public void display() {
+		if(last==null) {
+			System.out.println("List is Empty!!!");
+			return;
+		}
+		Node temp = last.getNext();
+		while(temp!=last) {
+			System.out.print(temp.getData()+" -> ");
+			temp=temp.getNext()
+		}
+	}
+	public static void main(String[] args) {
+		Circular_LL ll=new Circular_LL();
+		ll.insertFirst(10);
+		ll.insertFirst(20);
+		ll.insertFirst(30);
+		ll.insertFirst(50);
+		ll.display();
+		ll.insertLast(50);
+		ll.insertLast(70);
+		ll.display();
+		ll.insertByPos(80, 3);
+		ll.insertByPos(90, 7);
+		ll.display();
+		
+	}
+
+}
