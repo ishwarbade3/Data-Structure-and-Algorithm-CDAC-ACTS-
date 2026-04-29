@@ -1,0 +1,15 @@
+import linkedlist.Node;
+
+public class Stack_LL {
+	protected Node top;
+	
+	public Stack_LL() {
+		top=null;
+	}
+	
+	public void push(int data) {
+		Node newNode
+	}
+	
+
+}

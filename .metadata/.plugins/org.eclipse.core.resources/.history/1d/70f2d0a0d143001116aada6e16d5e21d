@@ -1,0 +1,167 @@
+package recurssion;
+
+import java.util.LinkedList;
+
+public class RecurssionDemo {
+	public void fun(int n) {
+		if (n > 5)
+			return;
+		System.out.print("  " + n);
+		fun(n + 1);
+		// return; // no requirement
+	}
+
+	void fun1(int n) {
+		if (n > 5)
+			return;
+		fun1(n + 1);
+		System.out.print("  " + n);
+
+	}
+
+	public void displayArray(int a[], int i) {
+		if (i > a.length - 1)
+			return;
+		System.out.print("  " + a[i]);
+		displayArray(a, i + 1);
+	}
+
+	public int sumArray(int a[], int i) {
+		if (i == a.length - 1)
+			return a[i];
+
+		return a[i] + sumArray(a, i + 1);
+	}
+
+	int countDigit(int n) {
+		if (n / 10 == 0)
+			return 1;
+		return 1 + countDigit(n / 10);
+	}
+
+	int sumOfDigit(int n) {
+		if (n / 10 == 0)
+			return n;
+		return n % 10 + sumOfDigit(n / 10);
+	}
+
+	void reverseNum(int n) {
+		if (n / 10 == 0) {
+			System.out.print(n);
+			return;
+		}
+		System.out.print(n % 10);
+		reverseNum(n / 10);
+	}
+
+	public int powerFun(int n, int x) {
+		if (x == 0)
+			return 1;
+		return n * powerFun(n, x - 1);
+	}
+
+	void displayLinkedList(LinkedList<Integer> ll, int i) {
+		if (i == ll.size())
+			return;
+		System.out.print(ll.get(i) + " ->");
+		displayLinkedList(ll, i + 1);
+	}
+
+	void patternStar(int n, int total) {
+		if (n == 0)
+			return;
+
+		patternStar(n - 1, total);
+		printSpace(total - n);
+		printStar(n);
+		System.out.println();
+
+	}
+
+	void printStar(int n) {
+		if (n == 0)
+			return;
+		System.out.print("* ");
+		printStar(n - 1);
+	}
+
+	void printSpace(int n) {
+		if (n == 0)
+			return;
+
+		printSpace(n - 1);
+		System.out.print(" ");
+	}
+
+	int revNum(int n, int rev) {
+		if (n > 0) {
+			rev = (rev * 10) + n % 10;
+			n /= 10;
+			return revNum(n, rev);
+		}
+
+		return rev;
+	}
+
+	public int rserise(int n) {
+		int sum;
+		if (n == 0) {
+			return 0;
+		}
+		sum = n + rserise(n - 1);
+		System.out.print(n + " ");
+		return sum;
+	}
+
+	public static void main(String[] args) {
+		RecurssionDemo r = new RecurssionDemo();
+		/*
+		 * r.fun(1); System.out.println(); r.fun1(1); int arr[] = { 10, 20, 30, 40, 50,
+		 * 60, 70, 80, 90 }; System.out.println(); r.displayArray(arr, 0);
+		 * System.out.println("\nSum : " + r.sumArray(arr, 0));
+		 * System.out.println("Count : " + r.countDigit(1234567));
+		 * System.out.println("Sum : " + r.sumOfDigit(1234567)); //
+		 * System.out.println("NUm : "+ r.reverseNum(123456)); r.reverseNum(123456);
+		 * System.out.println("\nPower : " + r.powerFun(5, 3));
+		 * 
+		 * LinkedList<Integer> l = new LinkedList<Integer>(); l.addFirst(10);
+		 * l.addLast(20); l.addLast(30); l.addLast(40); l.addLast(50); l.addLast(60);
+		 * l.addLast(70); System.out.println(l); r.displayLinkedList(l, 0);
+		 * r.patternStar(5);
+		 */
+
+		//System.out.println("\nRev No : " + r.revNum(123456, 0));
+		// r.patternStar(5,5);
+		// System.out.println("\nRse : "+r.rserise(5));
+		r.patternStar1(5,5);
+	}
+
+	void patternStar1(int n,int total) {
+		if (n == 0)
+			return;
+
+		printStar1(n);
+		System.out.println();
+		printSpace1(total-n);
+		patternStar1(n - 1,total);
+
+	}
+
+	void printStar1(int n) {
+		if (n == 0)
+			return;
+		printStar1(n - 1);
+		System.out.print("* ");
+		
+	}
+
+	void printSpace1(int n) {
+		if (n == 0)
+			return;
+
+		printSpace1(n - 1);
+		System.out.print(" ");
+		
+	}
+
+}
