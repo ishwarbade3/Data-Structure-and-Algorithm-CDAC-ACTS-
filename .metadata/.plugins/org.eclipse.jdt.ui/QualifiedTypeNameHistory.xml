@@ -10,4 +10,7 @@
     <fullyQualifiedTypeName name="Stack_LinkedList"/>
     <fullyQualifiedTypeName name="linkedlist.Node"/>
     <fullyQualifiedTypeName name="queue_linkedlist.Queue_LL"/>
+    <fullyQualifiedTypeName name="binary_tree.BinaryTree"/>
+    <fullyQualifiedTypeName name="binary_tree.BT_QNode"/>
+    <fullyQualifiedTypeName name="binary_tree.BT_Queue"/>
 </qualifiedTypeNameHistroy>
