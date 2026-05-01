@@ -25,6 +25,26 @@ public class BinaryTree_Main {
 		System.out.println("\nSum of Leaf  Node  : "+bt.leafNodeSum());
 		System.out.println("Sum of NOn-Leaf Node : "+bt.nonLeafNodeSum());
 		System.out.println("No of Nodes in Tree  : "+bt.nodeCount());
+		
+		BinaryTree b1 =new BinaryTree();
+		BinaryTree b2 =new BinaryTree();
+		
+		for(int i = 1 ; i < 9 ;i++) {
+			b1.insertLevelwise(i*10);
+		}
+		for(int i = 1 ; i < 9 ;i++) {
+			b2.insertLevelwise(i*10);
+		}
+		
+		b1.displayLevelWise();
+		b2.displayLevelWise();
+		//System.out.println(b1.compareTree(b2));
+		if(b1.compareTree(b2)) {
+			System.out.println("\nBoth Trees Are Same");
+		}
+		else {
+			System.out.println("Both Trees Are Not Same");
+		}
 	}
 
 }

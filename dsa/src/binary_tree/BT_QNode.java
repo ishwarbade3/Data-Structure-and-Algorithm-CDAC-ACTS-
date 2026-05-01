@@ -2,7 +2,6 @@ package binary_tree;
 
 public class BT_QNode {
 	private BTNode data;
-
 	private BT_QNode next;
 
 	public BT_QNode() {

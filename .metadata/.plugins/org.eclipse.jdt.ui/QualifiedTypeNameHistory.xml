@@ -13,4 +13,6 @@
     <fullyQualifiedTypeName name="binary_tree.BinaryTree"/>
     <fullyQualifiedTypeName name="binary_tree.BT_QNode"/>
     <fullyQualifiedTypeName name="binary_tree.BT_Queue"/>
+    <fullyQualifiedTypeName name="doubly_linked_list.D_Node"/>
+    <fullyQualifiedTypeName name="doubly_linked_list.Doubly_Circular"/>
 </qualifiedTypeNameHistroy>

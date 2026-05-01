@@ -228,18 +228,33 @@ public class BinaryTree {
 			}
 		}
 	}
+
 	public boolean compareTree(BinaryTree r) {
-		if(this.root == null || r.getRoot()==null) {
+		if (this.root == null || r.getRoot() == null) {
 			return false;
 		}
-		BT_Queue q1 =new BT_Queue();
-		BT_Queue q2 =new BT_Queue();
-		BTNode iter1,iter2;
+		BT_Queue q1 = new BT_Queue();
+		BT_Queue q2 = new BT_Queue();
+		BTNode iter1, iter2;
 		q1.enqueue(root);
-		q1.enqueue(r.getRoot());
-		while(!q1.isEmpty() && !q2.isEmpty()) {
-			iter1 =q1.dequeue();
-			iter2 =q2.dequeue();
+		q2.enqueue(r.getRoot());
+		while (!q1.isEmpty() && !q2.isEmpty()) {
+			iter1 = q1.dequeue();
+			iter2 = q2.dequeue();
+			if (iter1.getData() != iter2.getData()) {
+				return false;
+			}
+			if (iter1.getLeft() != null)
+				q1.enqueue(iter1.getLeft());
+			if (iter1.getRight() != null)
+				q1.enqueue(iter1.getRight());
+			if (iter2.getLeft() != null)
+				q2.enqueue(iter2.getLeft());
+			if (iter2.getRight() != null)
+				q2.enqueue(iter2.getRight());
 		}
+		if (q1.isEmpty() && q2.isEmpty())
+			return true;
+		return false;
 	}
 }
