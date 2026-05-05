@@ -1,9 +1,0 @@
-package circular_linked_list;
-
-import linkedlist.Node;
-
-public class Circular_LinkedList {
-	private Node head;
-	
-
-}

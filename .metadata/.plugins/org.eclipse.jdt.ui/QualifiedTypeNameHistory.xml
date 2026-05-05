@@ -16,4 +16,5 @@
     <fullyQualifiedTypeName name="doubly_linked_list.D_Node"/>
     <fullyQualifiedTypeName name="doubly_linked_list.Doubly_Circular"/>
     <fullyQualifiedTypeName name="sorting.Bubble_Sort"/>
+    <fullyQualifiedTypeName name="sorting.MergeSort"/>
 </qualifiedTypeNameHistroy>
