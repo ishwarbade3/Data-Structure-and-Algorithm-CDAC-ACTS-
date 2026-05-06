@@ -17,4 +17,5 @@
     <fullyQualifiedTypeName name="doubly_linked_list.Doubly_Circular"/>
     <fullyQualifiedTypeName name="sorting.Bubble_Sort"/>
     <fullyQualifiedTypeName name="sorting.MergeSort"/>
+    <fullyQualifiedTypeName name="searching.Sequential_Search"/>
 </qualifiedTypeNameHistroy>
